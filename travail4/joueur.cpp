@@ -31,9 +31,15 @@ vector<Carte> Joueur::getLesCartesDuJoueur() const
 {
 	return lesCartesDuJoueur;
 }
+
 void Joueur::assignerCarte(Carte inCarte)
 {
 	lesCartesDuJoueur.push_back(inCarte);
+
+void Joueur::assignerCarte()
+{
+
+
 }
 //bool Joueur::operator==(const Joueur &inJoueur)
 //{
@@ -53,4 +59,9 @@ void Joueur::assignerCarte(Carte inCarte)
 //
 //		}
 //	}
+//	/*if (!equal(lesCartesDuJoueur.begin, lesCartesDuJoueur.end,
+//		inJoueur.lesCartesDuJoueur.begin, inJoueur.lesCartesDuJoueur.end))
+//	{
+//		for_each(lesCartesDuJoueur.begin, lesCartesDuJoueur.end)
+//	}*/
 //}
