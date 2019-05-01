@@ -19,10 +19,11 @@ public:
 	string getNom() const;
 	int getPoints() const;
 	vector<Carte>getLesCartesDuJoueur() const;
-	void assignerCarte();
+	void assignerCarte(Carte);
+	/*
 	bool operator==(const Joueur&);
 	bool operator<(const Joueur&);
-	Joueur& operator=(const Joueur&);
+	Joueur& operator=(const Joueur&);*/
 };
 
 #endif
