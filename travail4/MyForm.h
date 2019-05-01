@@ -19,6 +19,9 @@ namespace travail4 {
 	int valeurChanceuse;
 	string atoutChanceux;
 
+	void remplirVectorCarte(vector<Carte> inVectorCarte);
+	void assignerValeurCarte(vector<Carte> inVectorCarte, int cpt);
+
 	/// <summary>
 	/// Description résumée de MyForm
 	/// </summary>
@@ -617,7 +620,7 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 
 	void AfficherLesCartes()
 	{
-		
+	
 	}
 
 	void AfficherPoints()
@@ -642,5 +645,6 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		lesPoints[inJoueur]->Text = inValeur.ToString();
 	}
 
-};
+};	
+
 }
