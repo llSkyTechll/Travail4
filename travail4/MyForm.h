@@ -506,8 +506,14 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 }
 
 	private: System::Void btnDistribuer_Click(System::Object^  sender, System::EventArgs^  e) {
-
+		GenererCarte();
 		AfficherLesCartes();
+		carteChanceuse = GenererCarte();
+		labelCarteChanceuse->Text = gcnew String(carteChanceuse.ToString().c_str());
+		valeurChanceuse = rand() % 13 + 1;
+		labelValeurChanceuse->Text = valeurChanceuse.ToString();
+		atoutChanceux = GenererAtout();
+		labelAtoutChanceux->Text = gcnew String(atoutChanceux.c_str());
 		EffacerPointsObtenus();
 		RendreBoutonEnabled();
 	}
@@ -611,6 +617,7 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 
 	void AfficherLesCartes()
 	{
+		
 	}
 
 	void AfficherPoints()
