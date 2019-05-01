@@ -28,6 +28,6 @@ string Carte::getAtout() const
 string Carte::ToString()
 {
 
-	return to_string(valeur) + atout;
+	return to_string(valeur) +" "+ atout;
 }
 

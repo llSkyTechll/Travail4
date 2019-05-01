@@ -27,3 +27,27 @@ int Joueur::getPoints() const
 {
 	return points;
 }
+vector<Carte> Joueur::getLesCartesDuJoueur() const
+{
+	return lesCartesDuJoueur;
+}
+void Joueur::assignerCarte()
+{
+
+}
+bool Joueur::operator==(const Joueur &inJoueur)
+{
+
+}
+bool Joueur ::operator<(const Joueur &inJoueur)
+{
+
+}
+Joueur& Joueur::operator=(const Joueur &inJoueur)
+{
+	/*if (!equal(lesCartesDuJoueur.begin, lesCartesDuJoueur.end,
+		inJoueur.lesCartesDuJoueur.begin, inJoueur.lesCartesDuJoueur.end))
+	{
+		for_each(lesCartesDuJoueur.begin, lesCartesDuJoueur.end)
+	}*/
+}
