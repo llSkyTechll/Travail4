@@ -17,6 +17,7 @@ public:
 	string ToString();
 	Carte getCarte() const;
 
+
 };
 
 #endif

@@ -22,9 +22,7 @@ public:
 	void assignerCarte(Carte);
 	Carte getCarte(int) const;
 	
-	/*bool operator==(const Joueur&);
-	bool operator<(const Joueur&);
-	Joueur& operator=(const Joueur&);*/
+	
 };
 
 #endif
