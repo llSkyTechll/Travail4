@@ -35,4 +35,30 @@ Carte Carte::getCarte() const
 
 	return carteTempo;
 }
-
+bool Carte::operator==(const Carte& inCarte)
+{
+	bool valide = false;
+	if (valeur == inCarte.valeur && atout == inCarte.atout)
+	{
+		valide = true;
+	}
+	return valide;
+}
+bool Carte::operator<(const Carte& inCarte)
+{
+	bool valide = false;
+	if (valeur < inCarte.valeur && atout < inCarte.atout)
+	{
+		valide = true;
+	}
+	return valide;
+}
+Carte& Carte::operator=(const Carte& inCarte)
+{
+	if (valeur != inCarte.valeur && atout != inCarte.atout)
+	{
+		valeur = inCarte.valeur;
+		atout = inCarte.atout;
+	}
+	return *this;
+}

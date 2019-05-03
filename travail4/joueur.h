@@ -23,10 +23,7 @@ public:
 	void assignerCarte(Carte);
 	int calculerValeurTotal();
 	void trie();
-	/*
-	bool operator==(const Joueur&);
-	bool operator<(const Joueur&);
-	Joueur& operator=(const Joueur&);*/
+	
 
 };
 
