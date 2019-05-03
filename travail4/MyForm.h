@@ -635,7 +635,7 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		{
 			for (int cptCarte = 0; cptCarte < maxCartes; cptCarte++)
 			{
-				lesListes[cptJoueur]->Text = gcnew String(leJeu.lesJoueurs[cptJoueur].getLesCartesDuJoueur().at(cptCarte).ToString().c_str());
+				lesListes[cptJoueur]->Items->Add(gcnew String(leJeu.lesJoueurs[cptJoueur].getLesCartesDuJoueur().at(cptCarte).ToString().c_str()));
 			}
 		}
 	}

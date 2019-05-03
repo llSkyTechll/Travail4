@@ -49,7 +49,7 @@ int Joueur::calculerValeurTotal()
 
 void Joueur::trie()
 {
-	sort(lesCartesDuJoueur.begin, lesCartesDuJoueur.end);
+	sort(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end());
 }
 
 void Joueur::ajouterPoints(int inPoints)
