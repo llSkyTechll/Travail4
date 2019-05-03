@@ -52,27 +52,7 @@ void Joueur::trie()
 	sort(lesCartesDuJoueur.begin, lesCartesDuJoueur.end);
 }
 
-//bool Joueur::operator==(const Joueur &inJoueur)
-//{
-//
-//}
-//bool Joueur ::operator<(const Joueur &inJoueur)
-//{
-//
-//}
-//Joueur& Joueur::operator=(const Joueur &inJoueur)
-//{
-//	int cpt = 0;
-//	while (cpt<lesCartesDuJoueur.end)
-//	{
-//		if (lesCartesDuJoueur[cpt] != inJoueur.lesCartesDuJoueur[cpt])
-//		{
-//
-//		}
-//	}
-//	/*if (!equal(lesCartesDuJoueur.begin, lesCartesDuJoueur.end,
-//		inJoueur.lesCartesDuJoueur.begin, inJoueur.lesCartesDuJoueur.end))
-//	{
-//		for_each(lesCartesDuJoueur.begin, lesCartesDuJoueur.end)
-//	}*/
-//}
+Carte Joueur::getCarte(int inPosition) const
+{
+	return lesCartesDuJoueur[inPosition].getCarte();
+}

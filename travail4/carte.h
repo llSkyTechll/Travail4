@@ -15,6 +15,7 @@ public:
 	int getValeur() const;
 	string getAtout() const;
 	string ToString();
+	Carte getCarte() const;
 
 
 };

@@ -19,6 +19,7 @@ public:
 	string getNom() const;
 	int getPoints() const;
 	vector<Carte>getLesCartesDuJoueur() const;
+	Carte getCarte(int) const;
 	void assignerCarte(Carte);
 	int calculerValeurTotal();
 	void trie();
@@ -26,6 +27,7 @@ public:
 	bool operator==(const Joueur&);
 	bool operator<(const Joueur&);
 	Joueur& operator=(const Joueur&);*/
+
 };
 
 #endif
