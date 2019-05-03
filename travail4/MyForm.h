@@ -513,6 +513,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 				leJeu.lesJoueurs[cptJoueur].assignerCarte(GenererCarte());
 			}
 		}
+		TrierCartes();
 		AfficherLesCartes();
 		carteChanceuse = GenererCarte();
 		labelCarteChanceuse->Text = gcnew String(carteChanceuse.ToString().c_str());
@@ -552,6 +553,10 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 private: System::Void btnTotal_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	labelMessage->Text = "Chaque personne reçoit un nombre de points égal à la somme de ses cartes";
+	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+	{
+		AfficherValeur(cptJoueur, leJeu.lesJoueurs[cptJoueur].calculerValeurTotal());
+	}
 	AfficherPoints();
 	btnTotal->Enabled = false;
 }
@@ -623,7 +628,13 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 
 	void AfficherLesCartes()
 	{
-		
+		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+		{
+			for (int cptCarte = 0; cptCarte < maxCartes; cptCarte++)
+			{
+				lesListes[cptJoueur]->Text = gcnew String(leJeu.lesJoueurs[cptJoueur].getLesCartesDuJoueur().at(cptCarte).ToString().c_str());
+			}
+		}
 	}
 
 	void AfficherPoints()
@@ -648,6 +659,13 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		lesPoints[inJoueur]->Text = inValeur.ToString();
 	}
 
+	void TrierCartes()
+	{
+		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+		{
+			leJeu.lesJoueurs[cptJoueur].trie();
+		}
+	}
 };	
 
 }

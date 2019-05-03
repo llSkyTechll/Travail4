@@ -37,6 +37,21 @@ void Joueur::assignerCarte(Carte inCarte)
 	lesCartesDuJoueur.push_back(inCarte);
 }
 
+int Joueur::calculerValeurTotal()
+{
+	int total = 0;
+	for (int cpt = 0; cpt < 10; cpt++)
+	{
+		total += lesCartesDuJoueur[cpt].getValeur();
+	}
+	return total;
+}
+
+void Joueur::trie()
+{
+	sort(lesCartesDuJoueur.begin, lesCartesDuJoueur.end);
+}
+
 //bool Joueur::operator==(const Joueur &inJoueur)
 //{
 //

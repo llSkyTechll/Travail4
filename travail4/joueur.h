@@ -20,6 +20,8 @@ public:
 	int getPoints() const;
 	vector<Carte>getLesCartesDuJoueur() const;
 	void assignerCarte(Carte);
+	int calculerValeurTotal();
+	void trie();
 	/*
 	bool operator==(const Joueur&);
 	bool operator<(const Joueur&);
