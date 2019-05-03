@@ -35,12 +35,8 @@ vector<Carte> Joueur::getLesCartesDuJoueur() const
 void Joueur::assignerCarte(Carte inCarte)
 {
 	lesCartesDuJoueur.push_back(inCarte);
-
-void Joueur::assignerCarte()
-{
-
-
 }
+
 //bool Joueur::operator==(const Joueur &inJoueur)
 //{
 //
