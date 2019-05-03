@@ -37,24 +37,32 @@ void Joueur::assignerCarte(Carte inCarte)
 	lesCartesDuJoueur.push_back(inCarte);
 }
 
+Carte Joueur::getCarte(int inPosition) const
+{
+	return lesCartesDuJoueur[inPosition].getCarte();
+}
 //bool Joueur::operator==(const Joueur &inJoueur)
 //{
-//
+//	
 //}
 //bool Joueur ::operator<(const Joueur &inJoueur)
 //{
 //
 //}
 //Joueur& Joueur::operator=(const Joueur &inJoueur)
-//{
+//{	
+//
 //	int cpt = 0;
 //	while (cpt<lesCartesDuJoueur.end)
 //	{
-//		if (lesCartesDuJoueur[cpt] != inJoueur.lesCartesDuJoueur[cpt])
-//		{
-//
-//		}
+//					
+//			
+//			//lesCartesDuJoueur.push_back(inJoueur.lesCartesDuJoueur[cpt].getCarte);
+//			//lesCartesDuJoueur.at(cpt);
+//			//replace_if(lesCartesDuJoueur.begin, lesCartesDuJoueur.end,,inJoueur.lesCartesDuJoueur[cpt].getCarte())
+//			
 //	}
+//
 //	/*if (!equal(lesCartesDuJoueur.begin, lesCartesDuJoueur.end,
 //		inJoueur.lesCartesDuJoueur.begin, inJoueur.lesCartesDuJoueur.end))
 //	{

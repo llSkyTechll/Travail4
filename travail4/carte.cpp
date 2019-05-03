@@ -27,7 +27,12 @@ string Carte::getAtout() const
 }
 string Carte::ToString()
 {
-
 	return to_string(valeur) +" "+ atout;
+}
+Carte Carte::getCarte() const
+{
+	Carte carteTempo(valeur,atout);
+
+	return carteTempo;
 }
 

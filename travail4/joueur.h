@@ -20,8 +20,9 @@ public:
 	int getPoints() const;
 	vector<Carte>getLesCartesDuJoueur() const;
 	void assignerCarte(Carte);
-	/*
-	bool operator==(const Joueur&);
+	Carte getCarte(int) const;
+	
+	/*bool operator==(const Joueur&);
 	bool operator<(const Joueur&);
 	Joueur& operator=(const Joueur&);*/
 };
