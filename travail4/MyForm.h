@@ -553,9 +553,12 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 private: System::Void btnTotal_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	labelMessage->Text = "Chaque personne reçoit un nombre de points égal à la somme de ses cartes";
+	int valeur = 0;
 	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 	{
-		AfficherValeur(cptJoueur, leJeu.lesJoueurs[cptJoueur].calculerValeurTotal());
+		valeur = leJeu.lesJoueurs[cptJoueur].calculerValeurTotal();
+		leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeur);
+		AfficherValeur(cptJoueur, valeur);
 	}
 	AfficherPoints();
 	btnTotal->Enabled = false;

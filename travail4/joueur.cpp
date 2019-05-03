@@ -52,6 +52,11 @@ void Joueur::trie()
 	sort(lesCartesDuJoueur.begin, lesCartesDuJoueur.end);
 }
 
+void Joueur::ajouterPoints(int inPoints)
+{
+	points += inPoints;
+}
+
 Carte Joueur::getCarte(int inPosition) const
 {
 	return lesCartesDuJoueur[inPosition].getCarte();
