@@ -24,11 +24,6 @@ public:
 	int calculerValeurTotal();
 	void trie();
 	void ajouterPoints(int inPoints);
-	/*
-	bool operator==(const Joueur&);
-	bool operator<(const Joueur&);
-	Joueur& operator=(const Joueur&);*/
-
 };
 
 #endif
