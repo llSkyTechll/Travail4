@@ -47,7 +47,7 @@ bool Carte::operator==(const Carte& inCarte)
 bool Carte::operator<(const Carte& inCarte)
 {
 	bool valide = false;
-	if (valeur < inCarte.valeur && atout < inCarte.atout)
+	if (valeur < inCarte.valeur)
 	{
 		valide = true;
 	}

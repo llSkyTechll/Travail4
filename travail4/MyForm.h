@@ -506,6 +506,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 }
 
 	private: System::Void btnDistribuer_Click(System::Object^  sender, System::EventArgs^  e) {
+		viderListes();
 		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 		{
 			for (int cptCarte = 0; cptCarte < maxCartes; cptCarte++)
@@ -565,10 +566,13 @@ private: System::Void btnTotal_Click(System::Object^  sender, System::EventArgs^
 }
 
 private: System::Void btnPareil_Click(System::Object^  sender, System::EventArgs^  e) {
-
 	labelMessage->Text = "Vous obtenez 50 points pour 4 cartes pareilles ou plus\n ";
 	labelMessage->Text += "ou 10 points pour 3 cartes pareilles\n ";
 	labelMessage->Text += "ou 5 points pour 2 cartes pareilles\n ";
+	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+	{
+		leJeu.lesJoueurs[cptJoueur].ajouterPointsDuplique();
+	}
 	AfficherPoints();
 	btnPareil->Enabled = false;
 }
@@ -667,6 +671,14 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 		{
 			leJeu.lesJoueurs[cptJoueur].trie();
+		}
+	}
+
+	void viderListes()
+	{
+		for (int cpt = 0; cpt < 4; cpt++)
+		{
+			lesListes[cpt]->Items->Clear();
 		}
 	}
 };	

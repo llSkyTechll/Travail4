@@ -24,6 +24,7 @@ public:
 	int calculerValeurTotal();
 	void trie();
 	void ajouterPoints(int inPoints);
+	int ajouterPointsDuplique();
 };
 
 #endif
