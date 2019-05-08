@@ -506,14 +506,9 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 }
 
 	private: System::Void btnDistribuer_Click(System::Object^  sender, System::EventArgs^  e) {
+		viderCartes();
 		viderListes();
-		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
-		{
-			for (int cptCarte = 0; cptCarte < maxCartes; cptCarte++)
-			{
-				leJeu.lesJoueurs[cptJoueur].assignerCarte(GenererCarte());
-			}
-		}
+		creerCartes();
 		TrierCartes();
 		AfficherLesCartes();
 		carteChanceuse = GenererCarte();
@@ -679,6 +674,28 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		for (int cpt = 0; cpt < 4; cpt++)
 		{
 			lesListes[cpt]->Items->Clear();
+		}
+	}
+
+	void viderCartes()
+	{
+		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+		{
+			for (int cptCarte = 0; cptCarte < maxCartes; cptCarte++)
+			{
+				leJeu.lesJoueurs[cptJoueur].viderLesCartes();
+			}
+		}
+	}
+
+	void creerCartes()
+	{
+		for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+		{
+			for (int cptCarte = 0; cptCarte < maxCartes; cptCarte++)
+			{
+				leJeu.lesJoueurs[cptJoueur].assignerCarte(GenererCarte());
+			}
 		}
 	}
 };	

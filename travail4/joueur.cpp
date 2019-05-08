@@ -49,10 +49,7 @@ int Joueur::calculerValeurTotal()
 
 void Joueur::trie()
 {
-	for (int cpt = 0; cpt < 15; cpt++)
-	{
 		sort(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end());
-	}
 }
 
 void Joueur::ajouterPoints(int inPoints)
@@ -67,6 +64,7 @@ int Joueur::ajouterPointsDuplique()
 	int cptTriple = 0;
 	int cptQuadruple = 0;
 	int cpt = 0;
+	return 0;
 }
 
 Carte Joueur::getCarte(int inPosition) const
