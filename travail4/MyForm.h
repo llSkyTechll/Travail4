@@ -518,6 +518,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 		atoutChanceux = GenererAtout();
 		labelAtoutChanceux->Text = gcnew String(atoutChanceux.c_str());
 		EffacerPointsObtenus();
+		trouverJoueurEnAvance();
 		RendreBoutonEnabled();
 	}
 
@@ -557,6 +558,7 @@ private: System::Void btnTotal_Click(System::Object^  sender, System::EventArgs^
 		AfficherValeur(cptJoueur, valeur);
 	}
 	AfficherPoints();
+	trouverJoueurEnAvance();
 	btnTotal->Enabled = false;
 }
 
@@ -569,6 +571,7 @@ private: System::Void btnPareil_Click(System::Object^  sender, System::EventArgs
 		leJeu.lesJoueurs[cptJoueur].ajouterPointsDuplique();
 	}
 	AfficherPoints();
+	trouverJoueurEnAvance();
 	btnPareil->Enabled = false;
 }
 
@@ -586,6 +589,7 @@ private: System::Void btnChanceux_Click(System::Object^  sender, System::EventAr
 		AfficherValeur(cptJoueur, valeur);
 	}
 	AfficherPoints();
+	trouverJoueurEnAvance();
 	btnChanceux->Enabled = false;
 }
 
@@ -595,6 +599,7 @@ private: System::Void btnValeurChanseuce_Click(System::Object^  sender, System::
 	message += "ainsi que 5 points de plus pour tous ceux qui ont des cartes de l'atout chanceux";
 	labelMessage->Text = gcnew String(message.c_str());
 	AfficherPoints();
+	trouverJoueurEnAvance();
 	btnValeurChanseuce->Enabled = false;
 }
 
@@ -612,6 +617,7 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		AfficherValeur(cptJoueur, valeur);
 	}
 	AfficherPoints();
+	trouverJoueurEnAvance();
 	btnGrandeValeur->Enabled = false;
 }
 
@@ -665,6 +671,33 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 		ptsJ2->Text = leJeu.lesJoueurs[1].getPoints().ToString();
 		ptsJ3->Text = leJeu.lesJoueurs[2].getPoints().ToString();
 		ptsJ4->Text = leJeu.lesJoueurs[3].getPoints().ToString();
+	}
+
+	void trouverJoueurEnAvance()
+	{
+		int cptAvance = 0;
+		int cptValeur = leJeu.lesJoueurs[cptAvance].getPoints();
+		for (int cptJoueur = 1; cptJoueur < 4; cptJoueur++)
+		{
+			if (leJeu.lesJoueurs[cptJoueur].getPoints() > cptValeur)
+			{
+				cptValeur = leJeu.lesJoueurs[cptJoueur].getPoints();
+				cptAvance = cptJoueur;
+			}
+		}
+		string joueurAvance = "";
+		switch (cptAvance)
+		{
+		case 0: joueurAvance = "Joueur 1";
+			break;
+		case 1: joueurAvance = "Joueur 2";
+			break;
+		case 2: joueurAvance = "Joueur 3";
+			break;
+		case 3: joueurAvance = "Joueur 4";
+			break;
+		}
+		labelJoueurEnAvance->Text = gcnew String(joueurAvance.c_str());
 	}
 
 	void EffacerPointsObtenus()

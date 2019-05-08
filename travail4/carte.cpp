@@ -44,6 +44,15 @@ bool Carte::operator==(const Carte& inCarte)
 	}
 	return valide;
 }
+bool Carte::operator==(int inInt)
+{
+	bool valide = false;
+	if (valeur == inInt)
+	{
+		valide = true;
+	}
+	return valide;
+}
 bool Carte::operator<(const Carte& inCarte)
 {
 	bool valide = false;

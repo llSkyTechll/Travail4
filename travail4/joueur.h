@@ -29,5 +29,6 @@ public:
 	bool verifierCarteChanceuse(Carte);
 	bool verifierGrandeValeur();
 };
+bool grandeValeur(Carte inCarte);
 
 #endif
