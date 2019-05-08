@@ -568,7 +568,8 @@ private: System::Void btnPareil_Click(System::Object^  sender, System::EventArgs
 	labelMessage->Text += "ou 5 points pour 2 cartes pareilles\n ";
 	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 	{
-		leJeu.lesJoueurs[cptJoueur].ajouterPointsDuplique();
+		int doublons = leJeu.lesJoueurs[cptJoueur].trouvePointDuplique();
+		ajouterPointsDoublons(doublons, cptJoueur);
 	}
 	AfficherPoints();
 	trouverJoueurEnAvance();
@@ -608,14 +609,11 @@ private: System::Void btnValeurChanseuce_Click(System::Object^  sender, System::
 			valeur = 5;
 			leJeu.lesJoueurs[cptJoueur].ajouterPoints(5);
 		}
-
 		if (leJeu.lesJoueurs[cptJoueur].verifierValeurChanceuse(valeurChanceuse) == true)
 		{
 			valeur += valeurChanceuse;
 			leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeurChanceuse);
 		}
-
-
 		AfficherValeur(cptJoueur, valeur);
 	}
 	AfficherPoints();
@@ -695,27 +693,15 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 
 	void trouverJoueurEnAvance()
 	{
-		int cptAvance = 0;
-		int cptValeur = leJeu.lesJoueurs[cptAvance].getPoints();
+		string joueurAvance = leJeu.lesJoueurs[0].getNom();
+		int cptValeur = leJeu.lesJoueurs[0].getPoints();
 		for (int cptJoueur = 1; cptJoueur < 4; cptJoueur++)
 		{
 			if (leJeu.lesJoueurs[cptJoueur].getPoints() > cptValeur)
 			{
 				cptValeur = leJeu.lesJoueurs[cptJoueur].getPoints();
-				cptAvance = cptJoueur;
+				joueurAvance = leJeu.lesJoueurs[cptJoueur].getNom();
 			}
-		}
-		string joueurAvance = "";
-		switch (cptAvance)
-		{
-		case 0: joueurAvance = "Joueur 1";
-			break;
-		case 1: joueurAvance = "Joueur 2";
-			break;
-		case 2: joueurAvance = "Joueur 3";
-			break;
-		case 3: joueurAvance = "Joueur 4";
-			break;
 		}
 		labelJoueurEnAvance->Text = gcnew String(joueurAvance.c_str());
 	}
@@ -769,6 +755,25 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 			{
 				leJeu.lesJoueurs[cptJoueur].assignerCarte(GenererCarte());
 			}
+		}
+	}
+
+	void ajouterPointsDoublons(int inDoublons, int cptJoueur)
+	{
+		if (inDoublons == 2)
+		{
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(5);
+			AfficherValeur(cptJoueur, 5);
+		}
+		else if (inDoublons == 3)
+		{
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(10);
+			AfficherValeur(cptJoueur, 10);
+		}
+		else if (inDoublons >= 4)
+		{
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(50);
+			AfficherValeur(cptJoueur, 50);
 		}
 	}
 };	

@@ -24,13 +24,13 @@ public:
 	int calculerValeurTotal();
 	void trie();
 	void ajouterPoints(int inPoints);
-	int ajouterPointsDuplique();
+	int trouvePointDuplique();
 	void viderLesCartes();
 	bool verifierCarteChanceuse(Carte);
 	bool verifierGrandeValeur();
 	bool verifierAtoutChanceux(string);
 	bool verifierValeurChanceuse(int);
 };
-bool grandeValeur(Carte inCarte);
+bool comparerValeur(Carte inCarte);
 
 #endif

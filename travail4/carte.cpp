@@ -44,15 +44,7 @@ bool Carte::operator==(const Carte& inCarte)
 	}
 	return valide;
 }
-bool Carte::operator==(int inInt)
-{
-	bool valide = false;
-	if (valeur == inInt)
-	{
-		valide = true;
-	}
-	return valide;
-}
+
 bool Carte::operator==(string inAtout)
 {
 	bool valide = false;
@@ -62,6 +54,7 @@ bool Carte::operator==(string inAtout)
 	}
 	return valide;
 }
+
 bool Carte::operator==(int inValeur)
 {
 	bool valide = false;
@@ -71,6 +64,7 @@ bool Carte::operator==(int inValeur)
 	}
 	return valide;
 }
+
 bool Carte::operator<(const Carte& inCarte)
 {
 	bool valide = false;
@@ -80,6 +74,7 @@ bool Carte::operator<(const Carte& inCarte)
 	}
 	return valide;
 }
+
 Carte& Carte::operator=(const Carte& inCarte)
 {
 	if (this != &inCarte)

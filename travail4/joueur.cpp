@@ -57,14 +57,17 @@ void Joueur::ajouterPoints(int inPoints)
 	points += inPoints;
 }
 
-int Joueur::ajouterPointsDuplique()
+int Joueur::trouvePointDuplique()
 {
-	int pointBonus = 0;
 	int cptDoublons = 0;
-	int cptTriple = 0;
-	int cptQuadruple = 0;
-	int cpt = 0;
-	return 0;
+	for (int cpt = 1; cpt <= 13; cpt++)
+	{
+		if (cptDoublons < count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), cpt))
+		{
+			cptDoublons = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), cpt);
+		}
+	}
+	return cptDoublons;
 }
 
 void Joueur::viderLesCartes()
@@ -94,9 +97,10 @@ bool Joueur::verifierAtoutChanceux(string inAtout)
 
 bool Joueur::verifierGrandeValeur()
 {
-	int grandeValeur = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), grandeValeur);
-	if (grandeValeur > 0)
-		{
+	int grandeValeur = 0;
+	grandeValeur = count_if(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), comparerValeur);
+	if (grandeValeur > 4)
+	{
 		return true;
 	}
 	return false;
@@ -118,7 +122,7 @@ Carte Joueur::getCarte(int inPosition) const
 	return lesCartesDuJoueur[inPosition].getCarte();
 }
 
-bool grandeValeur(Carte inCarte)
+bool comparerValeur(Carte inCarte)
 {
 	return (inCarte.getValeur() > 10);
 }
