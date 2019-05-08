@@ -55,7 +55,7 @@ bool Carte::operator<(const Carte& inCarte)
 }
 Carte& Carte::operator=(const Carte& inCarte)
 {
-	if (valeur != inCarte.valeur && atout != inCarte.atout)
+	if (this != &inCarte)
 	{
 		valeur = inCarte.valeur;
 		atout = inCarte.atout;

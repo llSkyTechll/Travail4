@@ -547,7 +547,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 	}
 
 private: System::Void btnTotal_Click(System::Object^  sender, System::EventArgs^  e) {
-
+ 
 	labelMessage->Text = "Chaque personne reçoit un nombre de points égal à la somme de ses cartes";
 	int valeur = 0;
 	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
@@ -573,8 +573,20 @@ private: System::Void btnPareil_Click(System::Object^  sender, System::EventArgs
 }
 
 private: System::Void btnChanceux_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	int valeur = 0;
 	labelMessage->Text = "Tous ceux qui ont la carte chanceuse obtiennent 25 points";
+	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+	{
+		
+		if (leJeu.lesJoueurs[cptJoueur].verifierCarteChanceuse(carteChanceuse) == true)
+		{
+			valeur = 25;
+		}
+			
+		leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeur);
+		AfficherValeur(cptJoueur, valeur);
+	}
+
 	AfficherPoints();
 	btnChanceux->Enabled = false;
 }
