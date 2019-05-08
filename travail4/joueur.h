@@ -28,6 +28,8 @@ public:
 	void viderLesCartes();
 	bool verifierCarteChanceuse(Carte);
 	bool verifierGrandeValeur();
+	bool verifierAtoutChanceux(string);
+	bool verifierValeurChanceuse(int);
 };
 bool grandeValeur(Carte inCarte);
 

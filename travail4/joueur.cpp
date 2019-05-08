@@ -16,7 +16,7 @@ Joueur::Joueur(const Joueur& inJoueur)
 {
 	nom = inJoueur.nom;
 	points = inJoueur.points;
-	lesCartesDuJoueur = inJoueur.lesCartesDuJoueur; //operator= surchargé dans la STL
+	lesCartesDuJoueur = inJoueur.lesCartesDuJoueur; //operator= surchargï¿½ dans la STL
 }
 
 string Joueur::getNom() const
@@ -81,11 +81,32 @@ bool Joueur::verifierCarteChanceuse(Carte inCarte)
 	}
 	return false;
 }
+bool Joueur::verifierAtoutChanceux(string inAtout)
+{
+	int atoutchanceux = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), inAtout);
+
+	if (atoutchanceux > 0)
+	{
+		return true;
+	}
+	return false;
+}
 
 bool Joueur::verifierGrandeValeur()
 {
 	int grandeValeur = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), grandeValeur);
 	if (grandeValeur > 0)
+		{
+		return true;
+	}
+	return false;
+}
+
+bool Joueur::verifierValeurChanceuse(int inValeur)
+{
+
+	int valeurChanceuse = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), inValeur);
+	if (valeurChanceuse > 0)
 	{
 		return true;
 	}

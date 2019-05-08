@@ -17,6 +17,7 @@ public:
 	string ToString();
 	Carte getCarte() const;
 	bool operator==(const Carte&);
+	bool operator==(string);
 	bool operator==(int);
 	bool operator<(const Carte&);
 	Carte& operator=(const Carte&);

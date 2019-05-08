@@ -20,7 +20,7 @@ namespace travail4 {
 	string atoutChanceux;
 
 	/// <summary>
-	/// Description résumée de MyForm
+	/// Description rï¿½sumï¿½e de MyForm
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
@@ -35,7 +35,7 @@ namespace travail4 {
 
 	protected:
 		/// <summary>
-		/// Nettoyage des ressources utilisées.
+		/// Nettoyage des ressources utilisï¿½es.
 		/// </summary>
 		~MyForm()
 		{
@@ -93,7 +93,7 @@ namespace travail4 {
 
 	private:
 		/// <summary>
-		/// Variable nécessaire au concepteur.
+		/// Variable nï¿½cessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		List<ListBox^>^ lesListes;
@@ -101,8 +101,8 @@ namespace travail4 {
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-		/// le contenu de cette méthode avec l'éditeur de code.
+		/// Mï¿½thode requise pour la prise en charge du concepteur - ne modifiez pas
+		/// le contenu de cette mï¿½thode avec l'ï¿½diteur de code.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -539,7 +539,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 			break;
 		case 1: atout = "coeur";
 			break;
-		case 2: atout = "trèfle";
+		case 2: atout = "trï¿½fle";
 			break;
 		case 3: atout = "carreau";
 			break;
@@ -549,7 +549,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 
 private: System::Void btnTotal_Click(System::Object^  sender, System::EventArgs^  e) {
  
-	labelMessage->Text = "Chaque personne reçoit un nombre de points égal à la somme de ses cartes";
+	labelMessage->Text = "Chaque personne reï¿½oit un nombre de points ï¿½gal ï¿½ la somme de ses cartes";
 	int valeur = 0;
 	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 	{
@@ -595,9 +595,29 @@ private: System::Void btnChanceux_Click(System::Object^  sender, System::EventAr
 
 private: System::Void btnValeurChanseuce_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	string message = "Tous ceux qui ont une carte possédant la valeur chanceuse obtiennent cette valeur\n";
+	string message = "Tous ceux qui ont une carte possï¿½dant la valeur chanceuse obtiennent cette valeur\n";
 	message += "ainsi que 5 points de plus pour tous ceux qui ont des cartes de l'atout chanceux";
 	labelMessage->Text = gcnew String(message.c_str());
+	int valeur = 0;
+	int valeurCarteChanceuse = 0;
+	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+	{
+		valeur = 0;
+		if (leJeu.lesJoueurs[cptJoueur].verifierAtoutChanceux(atoutChanceux) == true)
+		{
+			valeur = 5;
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(5);
+		}
+
+		if (leJeu.lesJoueurs[cptJoueur].verifierValeurChanceuse(valeurChanceuse) == true)
+		{
+			valeur += valeurChanceuse;
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeurChanceuse);
+		}
+
+
+		AfficherValeur(cptJoueur, valeur);
+	}
 	AfficherPoints();
 	trouverJoueurEnAvance();
 	btnValeurChanseuce->Enabled = false;
@@ -622,7 +642,7 @@ private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::Eve
 }
 
 	//-----------------------------------------------------------------------------------------
-	//fonctions servant à l'affichage
+	//fonctions servant ï¿½ l'affichage
 	void AjouterLesListBox()
 	{
 		lesListes = gcnew List<ListBox^>();
