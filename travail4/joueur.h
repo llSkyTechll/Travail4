@@ -25,6 +25,8 @@ public:
 	void trie();
 	void ajouterPoints(int inPoints);
 	int ajouterPointsDuplique();
+	void viderLesCartes();
+	bool verifierCarteChanceuse(Carte);
 };
 
 #endif

@@ -67,6 +67,21 @@ int Joueur::ajouterPointsDuplique()
 	return 0;
 }
 
+void Joueur::viderLesCartes()
+{
+	lesCartesDuJoueur.clear();
+}
+
+bool Joueur::verifierCarteChanceuse(Carte inCarte)
+{
+	int carteChanceuse = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), inCarte);
+	if (carteChanceuse > 0)
+	{
+		return true;
+	}
+	return false;
+}
+
 Carte Joueur::getCarte(int inPosition) const
 {
 	return lesCartesDuJoueur[inPosition].getCarte();
