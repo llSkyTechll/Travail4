@@ -27,6 +27,7 @@ public:
 	int ajouterPointsDuplique();
 	void viderLesCartes();
 	bool verifierCarteChanceuse(Carte);
+	bool verifierGrandeValeur();
 };
 
 #endif

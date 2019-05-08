@@ -82,7 +82,22 @@ bool Joueur::verifierCarteChanceuse(Carte inCarte)
 	return false;
 }
 
+bool Joueur::verifierGrandeValeur()
+{
+	int grandeValeur = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), grandeValeur);
+	if (grandeValeur > 0)
+	{
+		return true;
+	}
+	return false;
+}
+
 Carte Joueur::getCarte(int inPosition) const
 {
 	return lesCartesDuJoueur[inPosition].getCarte();
+}
+
+bool grandeValeur(Carte inCarte)
+{
+	return (inCarte.getValeur() > 10);
 }

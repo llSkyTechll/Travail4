@@ -577,16 +577,14 @@ private: System::Void btnChanceux_Click(System::Object^  sender, System::EventAr
 	labelMessage->Text = "Tous ceux qui ont la carte chanceuse obtiennent 25 points";
 	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 	{
-		
+		valeur = 0;
 		if (leJeu.lesJoueurs[cptJoueur].verifierCarteChanceuse(carteChanceuse) == true)
 		{
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(25);
 			valeur = 25;
-		}
-			
-		leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeur);
+		}		
 		AfficherValeur(cptJoueur, valeur);
 	}
-
 	AfficherPoints();
 	btnChanceux->Enabled = false;
 }
@@ -603,6 +601,16 @@ private: System::Void btnValeurChanseuce_Click(System::Object^  sender, System::
 private: System::Void btnGrandeValeur_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	labelMessage->Text = "Tous ceux qui ont au moins 5 cartes > 10 obtiennent 50 points ";
+	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+	{
+		int valeur = 0;
+		if (leJeu.lesJoueurs[cptJoueur].verifierGrandeValeur() == true)
+		{
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(50);
+			valeur = 50;
+		}
+		AfficherValeur(cptJoueur, valeur);
+	}
 	AfficherPoints();
 	btnGrandeValeur->Enabled = false;
 }
