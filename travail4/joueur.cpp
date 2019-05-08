@@ -81,7 +81,27 @@ bool Joueur::verifierCarteChanceuse(Carte inCarte)
 	}
 	return false;
 }
+bool Joueur::verifierAtoutChanceux(string inAtout)
+{
+	int atoutchanceux = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), inAtout);
 
+	if (atoutchanceux > 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Joueur::verifierValeurChanceuse(int inValeur)
+{
+
+	int valeurChanceuse = count(lesCartesDuJoueur.begin(), lesCartesDuJoueur.end(), inValeur);
+	if (valeurChanceuse > 0)
+	{
+		return true;
+	}
+	return false;
+}
 Carte Joueur::getCarte(int inPosition) const
 {
 	return lesCartesDuJoueur[inPosition].getCarte();

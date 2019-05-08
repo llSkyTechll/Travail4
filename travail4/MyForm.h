@@ -577,13 +577,13 @@ private: System::Void btnChanceux_Click(System::Object^  sender, System::EventAr
 	labelMessage->Text = "Tous ceux qui ont la carte chanceuse obtiennent 25 points";
 	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
 	{
-		
+		valeur = 0;
 		if (leJeu.lesJoueurs[cptJoueur].verifierCarteChanceuse(carteChanceuse) == true)
 		{
 			valeur = 25;
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeur);
 		}
 			
-		leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeur);
 		AfficherValeur(cptJoueur, valeur);
 	}
 
@@ -596,6 +596,26 @@ private: System::Void btnValeurChanseuce_Click(System::Object^  sender, System::
 	string message = "Tous ceux qui ont une carte possédant la valeur chanceuse obtiennent cette valeur\n";
 	message += "ainsi que 5 points de plus pour tous ceux qui ont des cartes de l'atout chanceux";
 	labelMessage->Text = gcnew String(message.c_str());
+	int valeur = 0;
+	int valeurCarteChanceuse = 0;
+	for (int cptJoueur = 0; cptJoueur < 4; cptJoueur++)
+	{
+		valeur = 0;
+		if (leJeu.lesJoueurs[cptJoueur].verifierAtoutChanceux(atoutChanceux) == true)
+		{
+			valeur = 5;
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(5);
+		}
+
+		if (leJeu.lesJoueurs[cptJoueur].verifierValeurChanceuse(valeurChanceuse) == true)
+		{
+			valeur += valeurChanceuse;
+			leJeu.lesJoueurs[cptJoueur].ajouterPoints(valeurChanceuse);
+		}
+
+
+		AfficherValeur(cptJoueur, valeur);
+	}
 	AfficherPoints();
 	btnValeurChanseuce->Enabled = false;
 }
